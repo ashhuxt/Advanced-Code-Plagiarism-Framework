@@ -23,331 +23,233 @@
 
 ---
 
+## 🧠 Research Context
+
+This project is developed as a **research-oriented system** in the domain of:
+
+- Program Analysis  
+- Code Clone Detection  
+- Semantic Code Understanding  
+
+It is intended as a foundation for exploring **semantic similarity, AI-assisted reasoning, and large-scale code analysis systems**.
+
+---
+
 # 🚀 Executive Overview
 
 **ACPDF (Advanced Code Plagiarism Detection Framework)** is a high-performance backend system designed to detect **code plagiarism beyond surface-level matching**.
 
-Traditional plagiarism tools fail when:
+Traditional systems fail when:
 
 - Variables are renamed  
 - Methods are reordered  
 - Code is reformatted  
 
-ACPDF solves this by analyzing **code structure, logic flow, and statistical patterns**, achieving **near-perfect robustness against obfuscation techniques**.
+ACPDF overcomes this by analyzing **structure, sequence, and statistical patterns**, achieving **near-perfect robustness against obfuscation**.
 
 ---
 
 # 🎯 Problem Statement
 
-Most plagiarism detection systems rely on:
+Most plagiarism detection tools rely on:
 
 - Text similarity  
 - Token matching  
 - Basic heuristics  
 
-These approaches fail against even simple transformations like:
+These approaches fail under:
 
 ❌ Variable renaming  
-❌ Method restructuring  
-❌ Formatting changes  
-❌ Partial copy modifications  
+❌ Structural refactoring  
+❌ Code reordering  
+❌ Partial copying  
 
-This creates **false negatives**, reducing trust in automated systems.
+Resulting in **false negatives and unreliable detection**.
 
 ---
 
 # 💡 Solution: Hybrid Detection Engine
 
-ACPDF introduces a **multi-layered detection architecture** that evaluates code at multiple abstraction levels.
+ACPDF introduces a **multi-layered detection system**:
 
 ## 🧬 Structural Intelligence (AST)
-
-- Parses code into **Abstract Syntax Trees**
-- Captures logical structure (loops, conditions, methods)
-- Completely immune to identifier renaming
+- Captures code structure using Abstract Syntax Trees  
+- Immune to identifier renaming  
 
 ## 🔗 Sequence Intelligence (LCS)
-
-- Detects **logical flow similarity**
-- Identifies reordered but equivalent logic blocks
-- Captures copy-paste patterns
+- Detects logical flow similarity  
+- Identifies reordered but equivalent code  
 
 ## 📊 Statistical Intelligence (TF-IDF)
+- Models coding style patterns  
+- Detects stylistic similarities  
 
-- Models **developer coding style**
-- Identifies unique token distributions
-- Detects stylistic plagiarism
-
-## ⚖️ Hybrid Weighted Model
-
-Combines all layers into a unified score:
+## ⚖️ Hybrid Model
 
 ```
 
 Final Score =
-0.40 × Structural (AST) +
-0.30 × Sequence (LCS) +
-0.30 × Statistical (TF-IDF)
+0.40 × AST +
+0.30 × LCS +
+0.30 × TF-IDF
 
-````
+```
 
 ---
 
 # 🔬 Experimental Validation
 
-ACPDF is not just implemented—it is **scientifically validated**.
-
 ## 🧪 Robustness Experiment
 
-- Dataset: **30+ Java source files**
-- Attack Type: **Variable Renaming Mutation**
-- Tool Used: Custom `MutatorEngine`
+- Dataset: 30+ Java files  
+- Attack: Variable Renaming Mutation  
+- Tool: Custom MutatorEngine  
 
 ### 📈 Results
 
-- **Mean Robustness Score:** `~99.85%`
-- **AST Layer Accuracy:** `100%`
-- **Observation:** Structural analysis remains unaffected by renaming attacks
+- Mean Robustness: **~99.85%**  
+- AST Accuracy: **100%**  
 
 ---
 
 ## 📊 Statistical Significance
 
-To validate model superiority:
-
-- Test Used: **McNemar’s Test**
-- Chi-Square Value: **27.0345**
-- Confidence: **p < 0.05**
+- Test: McNemar’s Test  
+- Chi-Square: **27.0345**  
+- Confidence: **p < 0.05**  
 
 ### ✅ Conclusion
 
-The hybrid model improvement is **statistically significant**, not random.
+Hybrid model improvement is **statistically significant**.
+
+---
+
+# ⚠️ Research Gap & Limitations
+
+While ACPDF achieves high robustness against syntactic obfuscation, several key limitations remain:
+
+- The system primarily captures **structural similarity**, not full semantic equivalence  
+- It struggles with **semantically equivalent but structurally different programs**  
+- Current approach relies on **pairwise comparison**, limiting scalability  
+- No integration of **context-aware or reasoning-based analysis**
+
+These limitations highlight the need for moving beyond structural detection toward **semantic-level understanding of programs**.
+
+---
+
+# 🚀 Research Direction
+
+ACPDF serves as a foundational system for advancing toward **semantic and scalable code analysis**.
+
+The next stage of this work focuses on bridging structural analysis with deeper program understanding.
+
+### Proposed Directions
+
+- **Semantic Program Representations**
+  - Control Flow Graphs (CFG)
+  - Program Dependence Graphs (PDG)
+
+- **AI-Assisted Reasoning**
+  - Integrating LLM-based models for reasoning about program behavior  
+  - Detecting functional equivalence beyond syntax  
+
+- **Scalable Code Retrieval Systems**
+  - Indexing large repositories  
+  - Efficient similarity search across codebases  
+
+- **Agent-Based Architecture**
+  - Modular analysis using specialized components  
+
+### Key Research Questions
+
+- How can semantic equivalence between programs be modeled effectively?  
+- Can AI assist in reasoning about program behavior beyond structure?  
+- How can such systems scale to real-world repositories?  
+
+This work positions ACPDF at the intersection of **program analysis, information retrieval, and AI-assisted software engineering**.
 
 ---
 
 # 📈 Performance Benchmark
 
-| Detection Method | Type | Robustness |
-|-----------------|------|-----------|
-| AST Frequency | Structural | **100.00%** |
-| LCS Alignment | Positional | 99.42% |
-| TF-IDF Vector | Statistical | 89.87% |
-| **Hybrid Model** | **Ensemble** | **99.64%** |
-
----
-
-# 📊 Visual Evidence
-
-## 🔍 Robustness Results
-
-![Results 1](docs/robustness_results_part1.png)  
-*High-confidence detection across initial mutation dataset*
-
-![Results 2](docs/robustness_results_part2.png)  
-*Consistent 100% similarity across extended dataset*
+| Method | Type | Score |
+|-------|------|------|
+| AST | Structural | 100% |
+| LCS | Positional | 99.42% |
+| TF-IDF | Statistical | 89.87% |
+| **Hybrid** | Ensemble | **99.64%** |
 
 ---
 
 # 🏗️ System Architecture
 
-```text
-Source Code Input
-        ↓
-Lexical Processing
-        ↓
-AST Generation (JavaParser)
-        ↓
+```
+
+Input Code
+↓
+AST Parsing
+↓
 Feature Extraction
-   ├── Structural (AST)
-   ├── Sequence (LCS)
-   └── Statistical (TF-IDF)
-        ↓
-Hybrid Scoring Engine
-        ↓
-Similarity Report Output
-````
+↓
+Hybrid Scoring
+↓
+Similarity Report
+
+```
 
 ---
 
 # 🛠️ Tech Stack
 
-| Layer          | Technology                       |
-| -------------- | -------------------------------- |
-| Language       | Java 21                          |
-| Framework      | Spring Boot 3.3.4                |
-| Parsing Engine | JavaParser 3.26.1                |
-| Testing        | JUnit 5, Mockito                 |
-| Database       | H2 (Testing), MySQL (Production) |
-| Build Tool     | Maven                            |
-
----
-
-# 📂 Project Structure
-
-```text
-acpdf/
-├── src/main/java/
-│   ├── controller/
-│   ├── service/
-│   ├── engine/
-│   ├── model/
-│   └── config/
-│
-├── src/test/java/
-│   ├── MutationTest.java
-│   └── ExperimentRunner.java
-│
-├── src/test/resources/
-│   └── mutants/
-│
-├── docs/
-│   ├── robustness_results_part1.png
-│   └── robustness_results_part2.png
-│
-├── pom.xml
-└── README.md
-```
+| Layer | Technology |
+|------|------------|
+| Language | Java 21 |
+| Framework | Spring Boot 3.3.4 |
+| Parsing | JavaParser |
+| Testing | JUnit 5 |
+| DB | H2 / MySQL |
 
 ---
 
 # 🚀 Getting Started
 
-## 1️⃣ Prerequisites
+## Prerequisites
+- Java 21+
+- Maven
 
-* Java 21+
-* Maven
-
----
-
-## 2️⃣ Clone Repository
-
-```bash
-git clone <repository-url>
-cd acpdf
+## Run Tests
 ```
 
----
-
-## 3️⃣ Run Robustness Experiment
-
-```bash
 mvn test
-```
-
-Or directly run:
 
 ```
-MutationTest.java
-```
 
----
-
-## 4️⃣ Run Full Dataset Experiment
-
+## Run Experiment
 Execute:
-
 ```
+
 ExperimentRunner.java
-```
-
-This generates:
 
 ```
-experiment_results.csv
-```
-
----
-
-# 🔬 Engineering Highlights
-
-## ✅ Obfuscation Resistance
-
-Handles:
-
-* Variable renaming
-* Method renaming
-* Code restructuring
-
-## ✅ Deterministic Scoring
-
-Not probabilistic guessing—**rule + model driven system**
-
-## ✅ Research-Oriented Design
-
-* Statistical validation
-* Controlled experiments
-* Measurable benchmarks
-
-## ✅ Scalable Backend Architecture
-
-Designed for:
-
-* Academic institutions
-* Coding platforms
-* Large repositories
 
 ---
 
 # 🧪 Why This Project Stands Out
 
-This is not a simple tool—it demonstrates:
-
-* Deep algorithmic understanding
-* Compiler-level reasoning (AST)
-* Statistical modeling
-* Backend system design
-* Research validation methodology
-
----
-
-# 📈 Future Roadmap
-
-## 🌐 Web Dashboard
-
-* Drag-and-drop file upload
-* Similarity heatmaps
-* Interactive reports
-
-## 🌍 Multi-Language Support
-
-* Python
-* C++
-* Universal AST parsing
-
-## 🤖 AI Semantic Detection
-
-* Detect AI-generated logical plagiarism
-* LLM-assisted similarity reasoning
-
-## ☁️ Distributed Processing
-
-* Parallel execution
-* Cloud-native deployment
-* Large dataset scaling
+- Combines **algorithms + system design + research**
+- Not just implementation — **validated experimentally**
+- Shows **deep understanding of program structure**
+- Bridges **engineering + research thinking**
 
 ---
 
 # 👨‍💻 Developer
 
-## Ashish Patel
+**Ashish Patel**
 
-Focused on building:
-
-* AI-powered backend systems
-* High-performance algorithms
-* Real-world engineering solutions
-
----
-
-# 🏆 Reviewer Insight
-
-A project like this signals:
-
-* Strong problem-solving ability
-* System design thinking
-* Algorithmic depth
-* Research-level validation
-* Production-oriented mindset
+- Backend Systems  
+- AI Engineering  
+- Algorithm Design  
 
 ---
 
@@ -355,8 +257,8 @@ A project like this signals:
 
 # 🌟 Final Statement
 
-> **ACPDF is not a basic plagiarism checker.**
-> It is a **research-grade hybrid detection engine** built for real-world robustness.
+> ACPDF is not just a tool.  
+> It is a **research-driven system exploring the future of code intelligence.**
 
 <br>
 
