@@ -1,39 +1,33 @@
-HELP.md
+```
+# Java/Maven specific
 target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
+# IDE specific
+.idea/
 *.iml
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+*.iws
 .vscode/
-# --- ACPDF Framework Specifics ---
-# Ignore the temporary mutants generated during the robustness experiment
-src/test/resources/mutants/*.java
 
-# Ignore the experiment results CSV if generated locally
-experiment_results.csv
+# Build system
+.mvn/
+mvnw
+mvnw.cmd
+
+# Dependencies
+lib/
+libs/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+```
